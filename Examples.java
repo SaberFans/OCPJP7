@@ -154,6 +154,22 @@ class MutlipleInheritance extends TobeInherited implements TobeImplemented{
 		System.out.println(field);
 	}
 }
+// Comparator Implementation test
+class ArraysSortComparatorTest{
+	ArraysSortComparatorTest(){
+		Demiliter.printDemiliter(this.getClass());
+		System.out.println("Arrays Sort function: Arrays.sort(int[],null).");
+		System.out.println("Declaring Comparator for Arrays.sort.");
+		
+		String str[]={"China","Ireland","Japan","France"};
+		System.out.println("String array to be sorted:"+Arrays.toString(str));
+		System.out.println("Using natural order Comparable in String to compare.");
+		Arrays.sort(str, null);
+		System.out.println("Arrays after sort:"+Arrays.toString(str));
+		
+		
+	}
+}
 // Test Entry
 public class Examples {
 
@@ -181,6 +197,9 @@ public class Examples {
 		 
 		// Static Method invoking && static fields inheritance
 		StaticClassStaticMethod scsm = new StaticClassStaticMethod();
+		
+		// Arrays.sort(T[],Comparator<T>)
+		ArraysSortComparatorTest asct = new ArraysSortComparatorTest();
 		
 
 	}
