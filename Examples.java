@@ -258,17 +258,17 @@ class MutableObject{
 // RecursiveTask
 class SortTask extends RecursiveAction{
 	// final int[]array, final int lo, final int hi;
-	final int array[],  lo, hi;
+	final int array[], lo, hi;
 	private int THRESHOLD = 0 ;
 	
 	SortTask(){
 		Demiliter.printDemiliter(this.getClass());
 		System.out.println("Array generated locally...");
 		Random rd = new Random();
-		int []arr =new int [10];
+		int []arr =new int [100];
 		for(int i=0;i<arr.length;i++)
 			arr[i] = rd.nextInt()%100;
-		this.lo = 0; this.hi = 10; this.array = arr;
+		this.lo = 0; this.hi = 100; this.array = arr;
 		
 		System.out.println("Randomly generated:"+Arrays.toString(arr));
 		
@@ -317,7 +317,6 @@ class SortTask extends RecursiveAction{
 	private void sequentiallySort(final int[]array, final int lo, final int hi){
 		// Using Arrays.sort() built-in sortring algorithm
 		Arrays.sort(array, lo, hi);
-		
 	}
 	
 }
