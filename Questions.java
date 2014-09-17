@@ -140,7 +140,7 @@ class TypeSafeWC{
 		List<Object> lofO = new ArrayList<>();
 		List lofany = new ArrayList<>();
 		
-		//Pass in list of String
+		//Pass into a TypeSafe type reference
 		System.out.println("Pass lof String to List<?>");
 		typeSafePass(lofStr);
 		System.out.println("Pass lof Object to List<?>");
@@ -148,9 +148,11 @@ class TypeSafeWC{
 		System.out.println("Pass lof raw types to List<?>");
 		typeSafePass(lofany);
 		
+		//Pass in list of any to List<Object> 
 		System.out.println("Pass Object types into Object types List");
 		typeSafePassAgain(lofany);
 		
+		// Pass List<> examples into List raw types, should be prohibited
 		System.out.println("Pass lof O, lof String, lof raw into Raw types");
 		typeSafePassAg(lofStr);
 		typeSafePassAg(lofany);
