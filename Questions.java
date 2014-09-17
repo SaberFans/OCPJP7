@@ -180,9 +180,26 @@ class TypeCastAutoBoxing{
 		float f = '0';
 		long l = 10L; // 10l
 		System.out.println("int a = '0', a="+a);
-		System.out.printf("PRINT a in char: a = %c, f in double f= %f\n",a,f);
-		
 		System.out.println("float f = '0', f="+f);
+	}
+}
+// String format
+class StringFormatEx{
+	public StringFormatEx() {
+		Demiliter.printDemiliter(this.getClass());
+		int a = 10;
+		float f = 10.0f;
+		double d = 10.0;
+		long l = 10l;
+		char c = '0';
+		
+		System.out.println("Using %d, %f, %c for string format");
+		System.out.println("%d - byte,short,int,long");
+		
+		System.out.printf("%1$s %1$14s %1$14.1s","hello");
+		
+		System.out.printf("%1$f %1$10f %1$10.4f%n",1.0);
+		
 	}
 }
 
@@ -200,5 +217,8 @@ public class Questions{
 		// Type Cast etc
 		TypeCastAutoBoxing tcab = new TypeCastAutoBoxing();
 		
+		StringFormatEx sfe = new StringFormatEx();
+		 
+		SubOuterClass soc = new SubOuterClass();
 	}
 }
