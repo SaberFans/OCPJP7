@@ -6,6 +6,7 @@ import java.util.Collection;
 import java.util.Deque;
 import java.util.Iterator;
 import java.util.List;
+import java.util.regex.Pattern;
 
 // Arrays.asList(T...) and usage of varargs
 class ArraysAsList{
@@ -202,7 +203,25 @@ class StringFormatEx{
 		
 	}
 }
-
+// Pattern and String split
+class StringRegex{
+	StringRegex(){
+		Demiliter.printDemiliter(this.getClass());
+		String date = "1-10-2013";
+		String res[]= date.split("-");
+		String resItself []=date.split(date);
+		System.out.println("1-10-2013 split by - :"+Arrays.toString(res));
+		System.out.println("1-10-2013 split by itself:"+Arrays.toString(resItself));
+		
+		date = "2.20.2013";
+		System.out.println(date+" split by \".\" :"+Arrays.toString(date.split(".")));
+		System.out.println(date+" split by \\\\. :"+Arrays.toString(date.split("\\.")));
+		
+		Pattern p = Pattern.compile(".");
+		System.out.println("Using pattern compile \".\" to split "+date+" :"+Arrays.toString(p.split(date)));
+		
+	}
+}
 public class Questions{
 	public static void main(String[]arg){
 		//ArrayDeque Test
@@ -220,5 +239,8 @@ public class Questions{
 		StringFormatEx sfe = new StringFormatEx();
 		 
 		SubOuterClass soc = new SubOuterClass();
+		
+		//String Regex
+		StringRegex sr = new StringRegex();
 	}
 }
