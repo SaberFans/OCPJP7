@@ -1,6 +1,6 @@
 // Execution Sequence of Class/Object construction
 
-// Sequence of execution shows below:
+// Sequence of execution if a object is created:
 // 1. Static variable declaration of super class
 // 2. Static super class block code execution
 // 3. Subclass static variable declaration
@@ -11,6 +11,13 @@
 // 8. Subclass general variable declaration
 // 9. Subclass general block execution
 // 10. Subclass constructor execution
+
+// Sequence of execution if only static method is invoked
+// 1. Static variable execution in super class
+// 2. Static block in super class
+// 3. Subclass(this class) static variable declaration
+// 4. Subclass static block
+// 5. Static method call
 
 class HelperClass{
 	public HelperClass() {
@@ -43,7 +50,7 @@ class SuperOuterClass{
 }
 class SubOuterClass extends SuperOuterClass{
 	//static SuperOuterClass soc = new SuperOuterClass();
-	 HelperClass hc = new HelperClass();
+	static HelperClass hc = new HelperClass();
 	static{
 		System.out.println("Static block in SubOuterClass");
 	}
@@ -53,6 +60,9 @@ class SubOuterClass extends SuperOuterClass{
 //	static {
 //		System.out.println("Static block 2 in Subouterclass");
 //	}
+	static void staticP(){
+		System.out.println("Static method call");
+	}
 	public SubOuterClass() {
 		Demiliter.printDemiliter(this.getClass());
 		System.out.println("Constructing sub outer class");
@@ -66,6 +76,8 @@ class SubOuterClass extends SuperOuterClass{
 
 public class ClassInitSequence{
 	public static void main(String[] args) {
-		SubOuterClass soc = new SubOuterClass();
+		// Static mehtod call only triggers the static block to 
+		SubOuterClass.staticP();
+		
 	}
 }
