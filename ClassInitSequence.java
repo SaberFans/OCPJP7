@@ -21,7 +21,7 @@
 
 class HelperClass{
 	public HelperClass() {
-		Demiliter.printDemiliter(this.getClass());
+		Delimiter.printDelimiter(this.getClass());
 		System.out.println("constructing helper class");
 	}
 }
@@ -41,7 +41,7 @@ class SuperOuterClass{
 //	}
 	public SuperOuterClass() {
 		// Super class method invocation will run in sub class
-		Demiliter.printDemiliter(this.getClass());
+		Delimiter.printDelimiter(this.getClass());
 		System.out.println("Constructing super outer class");
 	}
 	public void print(){	
@@ -64,7 +64,7 @@ class SubOuterClass extends SuperOuterClass{
 		System.out.println("Static method call");
 	}
 	public SubOuterClass() {
-		Demiliter.printDemiliter(this.getClass());
+		Delimiter.printDelimiter(this.getClass());
 		System.out.println("Constructing sub outer class");
 		//soc.print();
 	}
