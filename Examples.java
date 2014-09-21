@@ -7,8 +7,8 @@ import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.ForkJoinTask;
 import java.util.concurrent.RecursiveAction;
 
-class Demiliter{
-	static public void printDemiliter(Class c){
+class Delimiter{
+	static public void printDelimiter(Class c){
 		System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 		System.out.println(c+" initializing...");
 		System.out.println("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
@@ -16,7 +16,7 @@ class Demiliter{
 }
 class InstanceOfTypeCheck{
 	public void instanceofTest(){
-		Demiliter.printDemiliter(this.getClass());
+		Delimiter.printDelimiter(this.getClass());
 		String str = null;
 		if(str instanceof Object){
 			System.out.println("is object");
@@ -30,7 +30,7 @@ class ConstantPool{
 	String a = "hello";
 	String b = "hello";
 	public void testIfEquals(){
-		Demiliter.printDemiliter(this.getClass());
+		Delimiter.printDelimiter(this.getClass());
 		System.out.println("a==b is:"+(a==b));
 		System.out.println("a=b is "+ (a=b));
 	}
@@ -46,7 +46,7 @@ class Point{
 // Overloading example 
 class Overloading{
 	public Overloading(){
-		Demiliter.printDemiliter(this.getClass());
+		Delimiter.printDelimiter(this.getClass());
 		overloading(1.0);
 		overload(null);
 	}
@@ -95,7 +95,7 @@ class Overloading{
 class BinarySearch{
 	
 	public void binarySearch(){
-		Demiliter.printDemiliter(this.getClass());
+		Delimiter.printDelimiter(this.getClass());
 		System.out.println("Sorting array using Arrays.sort()");
 		int []a;
 		a = new int[]{ 2,2,1,5,4};
@@ -142,7 +142,7 @@ class Sub extends Super{
 }
 class StaticClassStaticMethod{
 	public StaticClassStaticMethod(){
-		Demiliter.printDemiliter(this.getClass());
+		Delimiter.printDelimiter(this.getClass());
 		Super sp = new Sub();
 		
 	}
@@ -163,7 +163,7 @@ class MutlipleInheritance extends TobeInherited implements TobeImplemented{
 // ArraySort Implementation Test
 class ArraysSortComparatorSort{
 	ArraysSortComparatorSort(){
-		Demiliter.printDemiliter(this.getClass());
+		Delimiter.printDelimiter(this.getClass());
 		System.out.println("Arrays Sort function: Arrays.sort(int[],null).");
 		System.out.println("Declaring Comparator for Arrays.sort.");
 		
@@ -203,14 +203,14 @@ class ArraysSortComparatorSort{
 // Collections.sort Implementation test
 class CollectionsComparatorSort{
 	CollectionsComparatorSort(){
-		Demiliter.printDemiliter(this.getClass());
+		Delimiter.printDelimiter(this.getClass());
 	}
 }
 
 // Immutable String
 class ImmutableString{
 	ImmutableString(){
-		Demiliter.printDemiliter(this.getClass());
+		Delimiter.printDelimiter(this.getClass());
 		String a, b, c;
 		a= b = c= "hello";
 		System.out.println(a+" "+b+" "+c);
@@ -223,7 +223,7 @@ class ImmutableString{
 // Mutable Class
 class MutableObject{
 	MutableObject(){
-		Demiliter.printDemiliter(this.getClass());
+		Delimiter.printDelimiter(this.getClass());
 		Object a, b, c;
 		a = b = c = new Object(){
 			@Override
@@ -262,7 +262,7 @@ class SortTask extends RecursiveAction{
 	private int THRESHOLD = 0 ;
 	
 	SortTask(){
-		Demiliter.printDemiliter(this.getClass());
+		Delimiter.printDelimiter(this.getClass());
 		System.out.println("Array generated locally...");
 		Random rd = new Random();
 		int []arr =new int [100];
@@ -323,7 +323,7 @@ class SortTask extends RecursiveAction{
 // Question about Java PassBy Value and final kw test
 class PassByValueAndFinal{
 	PassByValueAndFinal(){
-		Demiliter.printDemiliter(this.getClass());
+		Delimiter.printDelimiter(this.getClass());
 		System.out.println("Java method is passed by value/value of reference.");
 		System.out.println("Change only can be made to Object inner state. And the Objects should be Mutable.");
 		System.out.println("Immutable Class like Wrapper Class, and String can't change their inner states");

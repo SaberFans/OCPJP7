@@ -1,4 +1,5 @@
 
+import java.io.IOException;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -8,10 +9,12 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.regex.Pattern;
 
+import javax.management.RuntimeErrorException;
+
 // Arrays.asList(T...) and usage of varargs
 class ArraysAsList{
 	ArraysAsList(){
-		Demiliter.printDemiliter(this.getClass());
+		Delimiter.printDelimiter(this.getClass());
 		System.out.println("Show the usage of Arrays.asList(T...a)");
 		System.out.println("Initial a List using array of String");
 		String[]str = {"hello","bye"};
@@ -41,7 +44,7 @@ class ArraysAsList{
 // Array.asList<T...> usage for generic type inference
 class TypeInference{
 	TypeInference(){
-		Demiliter.printDemiliter(this.getClass());
+		Delimiter.printDelimiter(this.getClass());
 		List<Object> lofO = new ArrayList<>(Arrays.asList(1,"2",new Integer(3)));
 		System.out.println("Arrays.asList(T...) will conclude the most common type of the varargs passed in.");
 		
@@ -112,7 +115,7 @@ class TypeInference{
 // ArrayDeque usage
 class ArrayDequeTest{
 	ArrayDequeTest(){
-		Demiliter.printDemiliter(this.getClass());
+		Delimiter.printDelimiter(this.getClass());
 		System.out.println("Test the use of ArrayDeque.");
 		Integer []arr ={1,2,3,4};
 		Deque<Integer> dq = new ArrayDeque<>();
@@ -135,7 +138,7 @@ class ArrayDequeTest{
 // WildCard Type Safe 
 class TypeSafeWC{
 	public TypeSafeWC() {
-		Demiliter.printDemiliter(this.getClass());
+		Delimiter.printDelimiter(this.getClass());
 		System.out.println("Declaring list of String, list of Object, list of any types");
 		List<String> lofStr = new ArrayList<>(); 
 		List<Object> lofO = new ArrayList<>();
@@ -175,7 +178,7 @@ class TypeSafeWC{
 class TypeCastAutoBoxing{
 	public TypeCastAutoBoxing() {
 		// TODO Auto-generated constructor stub
-		Demiliter.printDemiliter(this.getClass());
+		Delimiter.printDelimiter(this.getClass());
 		System.out.println("Cast char to int");
 		int a = '0';
 		float f = '0';
@@ -187,7 +190,7 @@ class TypeCastAutoBoxing{
 // String format
 class StringFormatEx{
 	public StringFormatEx() {
-		Demiliter.printDemiliter(this.getClass());
+		Delimiter.printDelimiter(this.getClass());
 		int a = 10;
 		float f = 10.0f;
 		double d = 10.0;
@@ -206,7 +209,7 @@ class StringFormatEx{
 // Pattern and String split
 class StringRegex{
 	StringRegex(){
-		Demiliter.printDemiliter(this.getClass());
+		Delimiter.printDelimiter(this.getClass());
 		String date = "1-10-2013";
 		String res[]= date.split("-");
 		String resItself []=date.split(date);
@@ -221,6 +224,68 @@ class StringRegex{
 		System.out.println("Using pattern compile \".\" to split "+date+" :"+Arrays.toString(p.split(date)));
 		
 	}
+}
+// Exception catch for non-throw method call
+class NonException{
+	void tryCatchFinally(){
+		try{
+		}
+		// can be ommited, catch block
+		catch(Exception e){
+			
+		}
+		// mandatory finally block
+		finally{
+			
+		}
+		System.out.println("outside");
+	}
+	void noCatchBlock(){
+		try{
+			throw new RuntimeException();
+		}
+		finally{
+			System.out.println("in finally");
+		}
+		// No catch block, code will terminate after finally, just after the exception is thrown out
+	}
+	void exceptionCatch(){
+		try{
+			throw new RuntimeException();
+		}
+		catch(RuntimeException e){
+			
+		}
+		finally{
+			System.out.println("in finally");
+		}
+		System.out.println("outside try-catch-finally");
+	}
+	
+	public NonException() {
+		Delimiter.printDelimiter(this.getClass());
+		tryCatchFinally();
+		exceptionCatch();
+	}
+}
+// Error throw
+// the way how try-catch-finally work the same as Exception
+class ThrowError{
+	void throwError(){
+		throw new Error();
+	}
+	public ThrowError() {
+		Delimiter.printDelimiter(this.getClass());
+		try{
+			throwError();
+		}
+		 
+		finally{
+			System.out.println("outside try-catch-finally");
+		}
+		
+	}
+	
 }
 public class Questions{
 	public static void main(String[]arg){
@@ -242,5 +307,11 @@ public class Questions{
 		
 		//String Regex
 		StringRegex sr = new StringRegex();
+		
+		// Catch Exception flow
+		NonException ne = new NonException();
+		
+		// ThrowError
+		ThrowError te = new ThrowError();
 	}
 }
