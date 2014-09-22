@@ -1,5 +1,6 @@
 
 import java.io.IOException;
+import java.nio.file.FileAlreadyExistsException;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -247,6 +248,7 @@ class NonException{
 		finally{
 			System.out.println("in finally");
 		}
+		//System.out.println("outside try-catch-finally");
 		// No catch block, code will terminate after finally, just after the exception is thrown out
 	}
 	void exceptionCatch(){
@@ -268,22 +270,62 @@ class NonException{
 		exceptionCatch();
 	}
 }
+// Throw Multiple Exception
+class MultipleThrow{
+	MultipleThrow() throws IOException{
+		throwMoreEx();
+	}
+	
+	void throwMoreEx() throws IOException,IllegalStateException{
+		// RuntimeException explicitly thrown, don't need to worry about catch block at where it's invoked.
+	}
+}
+// Catch not matching throw in Exception
+class ThrowNoMatchCatch{
+	void throwtry() throws IOException{
+		try {
+			Integer.parseInt("ten");
+			throw new IOException();
+		} 
+		catch(NumberFormatException e){
+			throw e;
+		}
+		catch(IllegalStateException e){
+			throw new FileAlreadyExistsException("");
+		}
+		catch(IOException e){
+			throw new IOException();
+		}
+		catch (Exception e) {
+			throw e;
+		}
+	}
+	ThrowNoMatchCatch(){
+		Delimiter.printDelimiter(this.getClass());
+		try{
+			throwtry();
+		}
+		catch(IOException|NumberFormatException e){
+			System.out.println(e);
+		}
+	}
+}
 // Error throw
 // the way how try-catch-finally work the same as Exception
 class ThrowError{
 	void throwError(){
 		throw new Error();
 	}
-	public ThrowError() {
+	public ThrowError(){
 		Delimiter.printDelimiter(this.getClass());
 		try{
 			throwError();
 		}
-		 
 		finally{
-			System.out.println("outside try-catch-finally");
+			
+			System.out.println("finally");
 		}
-		
+		//System.out.println("outside try-catch-finally");
 	}
 	
 }
@@ -313,5 +355,8 @@ public class Questions{
 		
 		// ThrowError
 		ThrowError te = new ThrowError();
+		
+		// Java 7 Throw doesn't match method throw clause
+		ThrowNoMatchCatch tnmc = new ThrowNoMatchCatch();
 	}
 }
