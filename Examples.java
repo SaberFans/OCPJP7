@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.nio.file.FileAlreadyExistsException;
 import java.util.Arrays;
 import java.util.Collections;
@@ -114,6 +115,18 @@ class BinarySearch{
 // Interface abstract kw
 interface Birdie{
 	public abstract void fly() throws RuntimeException, FileAlreadyExistsException;
+}
+class BirdieCla implements Birdie{
+
+	@Override
+	
+	public void fly(){
+		
+	}
+	
+}
+interface BirdieSub extends Birdie{
+	public abstract void fly();
 }
 // Simple inheritance relationship structure example
 class Super{
