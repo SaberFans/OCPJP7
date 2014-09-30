@@ -375,6 +375,19 @@ class PassByValueAndFinal{
 
 // Exception thrown from methods mandatory should be declared explicitly?
 
+
+class NullPrintTry{
+	public NullPrintTry() {
+		Delimiter.printDelimiter(this.getClass());
+		Object a = null;
+		print(a);
+		
+	}
+	void print(Object c){
+		c.toString();
+	}
+	
+}
 // Test Entry
 public class Examples {
 
@@ -422,6 +435,9 @@ public class Examples {
 		fjp.submit(fjt);
 		fjp.shutdown();
 		fjt.join();
+		
+		//
+		NullPrintTry npt = new NullPrintTry();
 		
 	}
 
