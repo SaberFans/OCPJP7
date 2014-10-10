@@ -14,6 +14,11 @@ class Delimiter{
 		System.out.println(c+" initializing...");
 		System.out.println("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
 	}
+	static public void printDelimiter(String c){
+		System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+		System.out.println(c+" initializing...");
+		System.out.println("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
+	}
 }
 class InstanceOfTypeCheck{
 	public void instanceofTest(){
