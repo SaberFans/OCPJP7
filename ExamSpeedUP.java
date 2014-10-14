@@ -1,4 +1,15 @@
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Iterator;
+
+
+
+
+import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
+
+
+
 
 // **注意是import static ！！！
 import static java.lang.System.out;
@@ -80,12 +91,55 @@ public class ExamSpeedUP implements X1, X2 {
 
 		// String Buffer Test
 		StringBufferTest stbt = new StringBufferTest();
-		String generalString = "";
-		generalString = generalString.concat(null);
+		StringBuilder generalString = new StringBuilder();
+		generalString = generalString.append((Object)null);
 		System.out.println(generalString);
+		
+		CollectionOfStudent cofs = new CollectionOfStudent();
 	}
 }
+// Q26 Natural Ordering of Arrays
+class Student implements Comparable<Student>{
+	int age;
+	public Student(int age){
+		this.age = age;
+	}
+	@Override
+	public int compareTo(Student o) {
+		return (this.age-o.age)>0?1:(this.age==o.age?0:-1);
+	}
+	@Override
+	public String toString() {
+		return "Student age:"+this.age;
+	}
+	 
+}
+class CollectionOfStudent{
+	public CollectionOfStudent() {
+		Delimiter.printDelimiter(this.getClass());
+		Student[] studs;
+		studs = new Student[10];
+		Random r = new Random();
+		
+		for(int i=0;i<10;i++){
+			studs[i]= new Student(r.nextInt(20)+1);
+		}
+		Arrays.sort(studs);
+		System.out.println(Arrays.toString(studs));
+	}
+}
+class StudentComparator implements Comparator<Student>{
+	int x;
+	
+	@Override
+	public int compare(Student o1, Student o2) {
+		
+		return 0;
+	}
 
+	 
+	
+}
 // Q28
 class Generic<T> {
 	T[] arr;
