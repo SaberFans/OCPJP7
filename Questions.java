@@ -329,6 +329,27 @@ class ThrowError{
 	}
 	
 }
+// Inheritance Problem Java
+class SuperClass{
+	private int x;
+	public SuperClass() {
+//		this.x  = 5;
+		System.out.println("printing out x:"+this.x);
+	}
+	public void printX(){
+		System.out.println(this.x);
+	}
+}
+class SubClass extends SuperClass{
+	private int x = 6;
+	public void printX(){
+		super.printX();
+	}
+	public SubClass(){
+		Delimiter.printDelimiter("Test for subclass inheritance, method scope running in child class");
+		printX();
+	}
+}
 public class Questions{
 	public static void main(String[]arg){
 		//ArrayDeque Test
@@ -354,9 +375,13 @@ public class Questions{
 		NonException ne = new NonException();
 		
 		// ThrowError
-		ThrowError te = new ThrowError();
+		//ThrowError te = new ThrowError();
 		
 		// Java 7 Throw doesn't match method throw clause
 		ThrowNoMatchCatch tnmc = new ThrowNoMatchCatch();
+		
+		// Subc class
+		SubClass sc = new SubClass();
+		
 	}
 }

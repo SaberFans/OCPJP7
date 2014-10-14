@@ -119,12 +119,11 @@ class BinarySearch{
 }
 // Interface abstract kw
 interface Birdie{
-	public abstract void fly() throws RuntimeException, FileAlreadyExistsException;
+	public abstract void fly() throws IOException, FileAlreadyExistsException;
 }
 class BirdieCla implements Birdie{
 
 	@Override
-	
 	public void fly(){
 		
 	}
@@ -138,15 +137,18 @@ class Super{
 	public int count = 123;
 	Super(){
 		System.out.println("super count:"+count);
-		 
 	}
-	 void print(){
+	Super(int x){
+		System.out.println("Constructor in superclass with param 'x'");
+	}
+	void print(){
 		System.out.println("super"+count);
 	}
 }
 class Sub extends Super{
 	public int count = 234;
 	Sub(){
+		super(10);
 		System.out.println("Before modifying:");
 		System.out.println(count);
 		System.out.println("Modify inherited static filed to be 4");
