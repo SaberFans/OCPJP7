@@ -1,18 +1,12 @@
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.Iterator;
-
-
-
-
+import java.util.List;
+import java.util.Map;
 import java.util.Random;
-import java.util.concurrent.ThreadLocalRandom;
-
-
-
-
 // **注意是import static ！！！
-import static java.lang.System.out;
 
 // Q1 Number class cannot be instantiated, because it is an abstract class
 class NumberInstantiate {
@@ -96,6 +90,8 @@ public class ExamSpeedUP implements X1, X2 {
 		System.out.println(generalString);
 		
 		CollectionOfStudent cofs = new CollectionOfStudent();
+		
+		CollectionAddNull.printMap();
 	}
 }
 // Q26 Natural Ordering of Arrays
@@ -163,3 +159,18 @@ interface IterableSUB extends Iterable {
 interface IteratorSUB<E> extends Iterator<E> {
 
 }
+
+
+// Q34 Collection which allows adding null 
+class CollectionAddNull{
+	static public void addNull() {
+		List<Object> lofObject = new ArrayList<>();
+		lofObject.add(null);
+		System.out.println(lofObject.toString());
+	}
+	static public void printMap(){
+		Map<Object,String> map = new HashMap<>();
+		System.out.println(map);
+	}
+}
+
